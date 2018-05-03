@@ -21,7 +21,7 @@ public class OrderDAO {
 		    stmt =  conn.prepareStatement(OracleQueries.ADDORDER);
 		    stmt.setInt(1, x.getKey());   
 		    stmt.setInt(2, x.getValue());  
-	 	    n = stmt.execute();
+	 	    n = stmt.executeUpdate() >0;      // checks if record inserted successfully. stmt.executeUpdate() is number of records updated
 		    if(!n) l=false;
 		}
 		return l;    
